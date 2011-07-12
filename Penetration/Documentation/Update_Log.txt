@@ -1,0 +1,159 @@
+Update_Log.txt
+
+--------------------------------------------------------------------------------
+                      Penetration Project Update Log
+--------------------------------------------------------------------------------
+
+created on: Thurs, 07/07/2011.
+created by: Scott Davis
+
+About:  Document Description.
+     This log tracks my progress on my Processing project called "Penetration".
+It is used to track and date my achievements, remind me of things that still 
+need to be done, and document significant changes and record design comments on
+the project.
+
+Note:  Date Inclusion.
+     Any detailed description of activity on the Penetration Project before the
+creation date of this document (07/07/2011) will not be included in this log.
+
+
+<< Some sort of "How To Read This Document" type of section may be inserted 
+here>>
+
+
+Entry  (Considering establishing types of Entries: Update, To Do, Glitch/Error
+        Design Comment, etc.  May use different delimiters of each type, ie. 
+		***   <<>>  0000  ....  |||  ^^^  ***  &&&   %%% $$$  ###  etc... )
+Date: Thurs, 07/07/2011.
+Details:     Created this document, "Update_Log.txt", in the directory:
+
+        "D:\Vault\Collection\Development\Penetration\Documentation>".  
+	
+        Wrote some of the introductory parts of the document.  Still trying to 
+		figure out some of the design conventions that I'm going to use.  I'm
+        not too concerned about not keeping this document up to date because
+        the project is getting big enough that I'm going to depend its accuracy
+        to develop the project.  I currently have many issues that I want to
+        develope on my mental to do list, and the list is getting so big that
+        storing it all in my mind is no longer sufficient.  Tracking these issues
+        will hopefully boost my productivity as I will be able to attack 
+		specific problems with greater focus.  It will also be of great benefit
+        to me to be able to see what kinds of things I have done successfully.		
+		     I hope to include a short section that will quickly outline where
+	    the project stood the day of the creation of this document.  This will 
+		be a list of all the Processing .pde files with their creation date.
+
+Entry   Update		
+Date: Sat, 07/09/2011.
+Details:     Working on loading Obstruction objects through the PenetrationIO
+        file system.  The idea is that when the Level is loading from a 
+        level_name.lvl file, all of the walls and other Obstructions will be 
+		loaded into the SpacialObjectList within the Level.  I'm trying to get
+        the .lvl file to be able to represent a Obstruction object by only
+        parsing in a ParsePair<String,String>.  In the case of an Obstruction,
+        I'm having to write a helper method that will convert a 4 argument 
+		String into 4 separate ints.  Looking into StringTokenizer.
+		     Successfully implemented the StringTokenizer into 
+	    Level.loadLevelData(ArrayList<ParesPair> levelData).  It simply uses a
+		Variable String tag called "Obstruction".  If more arguments are ever
+		needed, this loop will need to be tweaked.  Need to update the saving of
+		a Level file to incorporate this. 
+             Made some minor updates to other files.  Corrected the toString on
+        ParsePair to show the extra space after the first comma; added the frame
+		title to the main class to make use of the level name.  Added some
+        comments into the level_1.lvl file to explain some of the limitations 
+        that my system uses.		
+		     Because of my ultimate goal to make a Level Editor, I'm avoiding
+	    adding all the features that will be associated with the Level Editor
+		such as GUI aided object placement.  As a work around, I'm considering
+		adding a feature to my editor mode.  In editor mode, double-click the 
+		mouse to drop a Blip.  Blips get added to the Level so that they are 
+		drawn, and part of their display shows their location.  I can use these
+		locations to help me fill in the numerical data into a .lvl file to 
+		place Obstructions.
+		     Added Blips, they are useful for creating Obstructions.
+		
+TODO:  Insert the following pseudo-code into Level.drawAll()
+        loop through the spacialObjectList
+            Spacial thisObj = get(i)
+            println( "  [" + i + "] is of class " + thisObj.class() );
+        end loop
+        get input from user to stop the draw method and view the list
+Done!  Tested, and it works.  This code ended up in PenetrationIO.writeLevel()
+
+
+Note:  Code for being able to run code on exit
+      private void prepareExitHandler () {
+
+      Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+
+      public void run () {
+
+      System.out.println("SHUTDOWN HOOK");
+
+      // application exit code here
+  println("Exiting, saving file");
+  PenetrationFileIO pFile = new PenetrationFileIO();
+  pFile.setFileName("level_1");
+  pFile.setExt(".lvl");
+  pFile.setPath("data\\levels\\level_1\\");
+  pFile.loadFile();
+  
+  pFile.writeFile(practiceWorld);
+
+      }
+
+      }));
+
+      }
+End Exit code.
+Borrowed from: http://forum.processing.org/topic/run-code-on-exit
+
+Note:  The above code chunk does not belong in the log, please remove when 
+     incorporated.		
+		
+Entry   Update
+Date: Sat, 07/09/2011
+Details:     Created the document "ToDo_Log.txt" in the Documents directory.  
+        It looks like it will be an up to date check list of things that I'd 
+		like to include, but I'm not sure yet.  I'm not going to require myself
+        to update this log everytime in make a change to the ToDo log.  Things
+        that are done will be recorded in this log as they happen, things that
+        still need to be done will still be on that log, and anything that is
+        abandoned or falls through the cracks doesn't belong in this project 
+        any way.  If needed, I may make some sort of depreciated log, but I 
+		don't see this project getting big enough for that to be an issue.
+		
+		
+Entry    Update
+Date: Sun, 07/10/2011
+Details:     Created "Medkit.pde".  Added features to Item: use, drop.  Moved
+        inventory to Mortal, added useItem with both obj reference and index.  
+        Fixed some minor things in Player.  Added 'e' key to controls in 
+		TestLevel to use the first item in the inventory.  Healing offically
+		works! And Items are used correctly and are removed from inventories 
+		when depeleted.
+		
+		Use this to fix your loadImage problem: http://forum.processing.org/topic/large-amounts-of-textures-a-good-way-to-store-them
+
+Entry     Update
+Date: Sun, 07/10/2011
+Details:     Working on things on the to do list.  Had a brilliant idea to turn
+        the EditorMode into it's own class to make it more usefull.  One big 
+        feature that will have to come with that will be having a selected 
+		object.  Hoping it will be very helpful.
+		     Working on fixing the texture problem.  Solution: I had an error in
+	    my testing class, so I never needed the workaround anyway.  Put the 
+		created Textures file in a depreciated folder.
+		     EditorMode created.  Took all the features that were in the Level
+		and put them in this.  Added a print out of the spacialObjectList, 
+		complete with a highlight placed on the selectedObject.
+		     Created the InputHandler to make the controls exportable and more 
+		compact.  Hopeing to some how use key bindings, but I'm not sure how 
+		yet.
+		     Trying to figure out what to do next, pause menu or camera system.
+		
+		
+		
+		

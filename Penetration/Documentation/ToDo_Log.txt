@@ -1,0 +1,119 @@
+ToDo_Log.txt
+
+--------------------------------------------------------------------------------
+                      Penetration Project To DO Log
+--------------------------------------------------------------------------------
+
+created on: Sat, 07/09/2011.
+created by: Scott Davis
+
+About:  Document Description.
+     This log tracks my list of things to do for the Penetration Project.  I 
+need to decide if this is going to be an unchanging historical log, or an up to 
+date check list of things that still need to be done.
+
+
+<< Some sort of "How To Read This Document" type of section may be inserted 
+here>>
+
+		
+To Do:
+
+- Create a GUI based run file that is able to provide menu options and run the 
+  game.
+      + Player Loading System (Upper Right of main menu)
+          * Create a new Player with name
+	      * Load Player
+		      > Display a list of existing Players to choose from, clicking 
+			    Player will select it, double click will load.
+		  * View some Player stats: Highest completed Level, kills, deaths, etc.
+              ? Create Ranking system to make Players feel special about their 
+                achievements?			 
+      + Options
+          * Audio / Visual
+              > Full screen with key binding / Allow resizable screen / Etc.
+              > Toggle captions			
+          * Controls
+              > Fully editable keybindings listing		  
+	  + Set Up Penetration (Better name?)
+	      * Begin New Game
+		  * Load Game
+		  * Level Select
+	  $ Assets
+	      * Images
+		      - Main Menu background image with pretty Penetration banner.
+			  - Cool theme for all the controls and fonts
+		  * Audio 
+		      - Background music
+			  - Cursor movements, clicks, significant selections
+	      * Media
+		      - Cool Processing animation / effect that goes with the theme. Ex:
+			    Matrix like code scrambeling across the screen, etc.
+			  - REXWare Logo
+			  -	Opening cut sceen
+		 
+		
+- Work on the Inventory
+      + Fix how Player's HUD is displayed, may include creating new class
+      + Create workable Iventory to display, making it pretty will come later.
+
+- Create some Items
+      + Health extender - instant use
+      + Keycard
+	  + Body armor - instant use
+	  + Distraction
+	  + Batteries
+	  + Night Vision Goggels (see Lighting section)
+
+- Create Weapons
+      + Unarmed / Knife
+      + Pistol / Silencer
+      +	AK-47
+      + Sniper Rifle
+      + EMP / Jammer
+	  + Tazer
+	  + Stun gernades
+	  
+- Create Doors / Switches
+
+- Create a goal / finish point for a Level
+
+- Create Pause Menu
+
+- Figure out how I'm going to handle a Camera object
+
+- Look into creating a PlayerControler to handle input	  
+
+- Look into how to incorporate cutsceens
+      + Pre-rendered media files with captions
+	  + Scripted in game sequences
+		
+- Enemies
+      + AI
+	      * Fix tracking, allow for smooth direction angle adjusting
+		  * Firing Weapon logic
+		  * Following preset path (This is more for the Level's sake)
+		      > Enemies already have the code to go from Waypoint to Waypoint in
+			    Mortal, I need a system in Level that keeps track of the 
+				different PatrolPath's an Enemy can make
+		  * Unconsious, Stunned, PathMode, CautionMode, AlertMode		
+      + Enemy Types
+	      * Stationary
+		      > Security Camera
+			  > Auto turret
+	      * Path Following
+		      > Gaurd
+			  > 
+		  * Boss / Objective
+		
+- Lighting
+      +  Allow for dark areas
+          * When you are in the dark, the draw method blacks out everything out
+            of your range of sight, and slightly darkens things on the 
+			perimeter.  When you put on night vision in the dark, the whole 
+			screen flashes bright green, and gradually shifts to almost normal
+            color.  If you put on night vision in the light, the screen flashes
+            white, you get the classic ringing sound, and the player gets 
+			stunned.  The player can see as soon as you take them off, but the
+            Player will still be stunned till it wears off.			
+		

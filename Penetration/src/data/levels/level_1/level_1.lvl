@@ -1,0 +1,15 @@
+Comment=You can put anything you want in this file as long as you follow these rules
+Rule_01=The first character on every line must be something that can be converted to a String, and not the equals sign
+Rule_02=There MUST be 1 and ONLY 1 equals sign on EVERY line.
+Order_Note=All entries in this file can be in any order you wish.
+level_name=level_1
+level_width=1000
+level_height=1000
+posX=500
+posY=800
+initialSpawnX=330
+initialSpawnY=450
+backgroundImagePath=levels\level_1\BackgroundLevel1.jpg
+Obstruction=380,605,370,15
+Obstruction=575,455,15,300
+Obstruction=380,310,370,15
